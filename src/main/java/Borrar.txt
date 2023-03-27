@@ -115,10 +115,6 @@ public class Vehiculo {
                 + cantidadCamiones;
     }
 
-    public static String paisMasVendedor() {
-        HashMap<String, Integer> ventasPorPais = new HashMap<String, Integer>();
-
-        for (Vehiculo vehiculo : vehiculos) {
-            String paisFabricante = vehiculo.getFabricante().getPai
+ 
 
 
