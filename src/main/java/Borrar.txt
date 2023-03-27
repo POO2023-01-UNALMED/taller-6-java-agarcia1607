@@ -1,3 +1,5 @@
+package vehiculos;
+
 public class Vehiculo {
     private String placa;
     private int puertas;
@@ -89,16 +91,13 @@ public class Vehiculo {
         return cantidadVehiculos;
     }
 
-    public static void setCantidadVehiculos(int cantidadVehiculos) {
-        Vehiculo.cantidadVehiculos = cantidadVehiculos;
-    }
-
     public static String vehiculosPorTipo() {
         int cantidadAutomoviles = 0;
         int cantidadCamionetas = 0;
         int cantidadCamiones = 0;
-        for (int i = 0; i < getCantidadVehiculos(); i++) {
-            Vehiculo vehiculo = Concesionario.getVehiculos()[i];
+
+        // Recorre todos los vehículos para contar la cantidad de cada tipo
+        for (Vehiculo vehiculo : Main.vehiculos) {
             if (vehiculo instanceof Automovil) {
                 cantidadAutomoviles++;
             } else if (vehiculo instanceof Camioneta) {
@@ -107,16 +106,16 @@ public class Vehiculo {
                 cantidadCamiones++;
             }
         }
+
         return "Automoviles: " + cantidadAutomoviles + "\nCamionetas: " + cantidadCamionetas + "\nCamiones: " + cantidadCamiones;
     }
 }
 
-public class Automovil extends Vehiculo {
+class Automovil extends Vehiculo {
     private int puestos;
 
     public Automovil(String placa, double precio, double peso, Fabricante fabricante, int puestos) {
-        super(placa, 4, 100, "Automovil")
-
+        super(placa, 4, 100,
 
 
 
