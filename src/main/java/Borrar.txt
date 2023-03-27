@@ -107,7 +107,7 @@ public class Vehiculo {
             }
         }
 
-        return "Automoviles: " + cantidadAutomoviles + "\nCamionetas: " + cantidadCamionetas + "\nCamiones: " + cantidadCamiones;
+        return "Automoiles: " + cantidadAutomoviles + "\nCamionetas: " + cantidadCamionetas + "\nCamiones: " + cantidadCamiones;
     }
 }
 
