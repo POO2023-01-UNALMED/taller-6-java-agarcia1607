@@ -1,8 +1,3 @@
-package vehiculos;
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class Vehiculo {
     private String placa;
     private int puertas;
@@ -12,7 +7,7 @@ public class Vehiculo {
     private double peso;
     private String traccion;
     private Fabricante fabricante;
-    private static int CantidadVehiculos = 0;
+    private static int cantidadVehiculos = 0;
 
     public Vehiculo(String placa, int puertas, int velocidadMaxima, String nombre, double precio, double peso, String traccion, Fabricante fabricante) {
         this.placa = placa;
@@ -23,7 +18,7 @@ public class Vehiculo {
         this.peso = peso;
         this.traccion = traccion;
         this.fabricante = fabricante;
-        CantidadVehiculos++;
+        cantidadVehiculos++;
     }
 
     public String getPlaca() {
@@ -91,18 +86,19 @@ public class Vehiculo {
     }
 
     public static int getCantidadVehiculos() {
-        return CantidadVehiculos;
+        return cantidadVehiculos;
     }
 
     public static void setCantidadVehiculos(int cantidadVehiculos) {
-        CantidadVehiculos = cantidadVehiculos;
+        Vehiculo.cantidadVehiculos = cantidadVehiculos;
     }
 
     public static String vehiculosPorTipo() {
         int cantidadAutomoviles = 0;
         int cantidadCamionetas = 0;
         int cantidadCamiones = 0;
-        for (Vehiculo vehiculo : vehiculos.values()) {
+        for (int i = 0; i < getCantidadVehiculos(); i++) {
+            Vehiculo vehiculo = Concesionario.getVehiculos()[i];
             if (vehiculo instanceof Automovil) {
                 cantidadAutomoviles++;
             } else if (vehiculo instanceof Camioneta) {
@@ -111,11 +107,16 @@ public class Vehiculo {
                 cantidadCamiones++;
             }
         }
-        return "Automoviles: " + cantidadAutomoviles + "\n" +
-                "Camionetas: " + cantidadCamionetas + "\n" +
-                "Camiones: " + cantidadCamiones;
+        return "Automoviles: " + cantidadAutomoviles + "\nCamionetas: " + cantidadCamionetas + "\nCamiones: " + cantidadCamiones;
     }
+}
 
-    private static Map<String, Integer> contarVehiculosPorPais() {
-        Map<String, Integer> contadorVehiculosPorPais = new HashMap<>();
-        for (Vehiculo vehiculo
+public class Automovil extends Vehiculo {
+    private int puestos;
+
+    public Automovil(String placa, double precio, double peso, Fabricante fabricante, int puestos) {
+        super(placa, 4, 100, "Automovil",
+
+
+
+
