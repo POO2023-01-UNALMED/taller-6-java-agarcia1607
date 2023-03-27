@@ -1,4 +1,4 @@
-package vehiculos;
+import java.util.HashMap;
 
 public class Vehiculo {
     private String placa;
@@ -11,7 +11,8 @@ public class Vehiculo {
     private Fabricante fabricante;
     private static int cantidadVehiculos = 0;
 
-    public Vehiculo(String placa, int puertas, int velocidadMaxima, String nombre, double precio, double peso, String traccion, Fabricante fabricante) {
+    public Vehiculo(String placa, int puertas, int velocidadMaxima, String nombre, double precio, double peso,
+            String traccion, Fabricante fabricante) {
         this.placa = placa;
         this.puertas = puertas;
         this.velocidadMaxima = velocidadMaxima;
@@ -91,13 +92,16 @@ public class Vehiculo {
         return cantidadVehiculos;
     }
 
+    public static void setCantidadVehiculos(int cantidadVehiculos) {
+        Vehiculo.cantidadVehiculos = cantidadVehiculos;
+    }
+
     public static String vehiculosPorTipo() {
         int cantidadAutomoviles = 0;
         int cantidadCamionetas = 0;
         int cantidadCamiones = 0;
 
-        // Recorre todos los vehículos para contar la cantidad de cada tipo
-        for (Vehiculo vehiculo : Main.vehiculos) {
+        for (Vehiculo vehiculo : vehiculos) {
             if (vehiculo instanceof Automovil) {
                 cantidadAutomoviles++;
             } else if (vehiculo instanceof Camioneta) {
@@ -107,15 +111,14 @@ public class Vehiculo {
             }
         }
 
-        return "Automoviles: " + cantidadAutomoviles + "\nCamionetas: " + cantidadCamionetas + "\nCamiones: " + cantidadCamiones;
+        return "Automoviles: " + cantidadAutomoviles + "\nCamionetas: " + cantidadCamionetas + "\nCamiones: "
+                + cantidadCamiones;
     }
-}
 
-class Automovil extends Vehiculo {
-    private int puestos;
+    public static String paisMasVendedor() {
+        HashMap<String, Integer> ventasPorPais = new HashMap<String, Integer>();
 
-    public Automovil(String placa, double precio, double peso, Fabricante fabricante, int puestos) {
-        super(placa, 4, 100,)
-
+        for (Vehiculo vehiculo : vehiculos) {
+            String paisFabricante = vehiculo.getFabricante().getPais
 
 
